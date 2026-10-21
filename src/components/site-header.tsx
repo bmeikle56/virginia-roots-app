@@ -99,7 +99,6 @@ export function SiteHeader() {
             );
           })}
         </nav>
-        <p className="ml-auto hidden text-sm text-neutral-400 lg:block">Free to read</p>
       </div>
       <div className="h-0.5 bg-white" />
       <div className="mt-px h-px bg-neutral-400" />
