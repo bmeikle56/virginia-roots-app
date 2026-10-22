@@ -1,6 +1,13 @@
 import { SectionBand } from "@/components/section-band";
 import { LeadStory } from "@/components/story-list";
-import { getStories, getStoriesBySection } from "@/lib/stories";
+import { getStories, getStoriesBySection, type Story } from "@/lib/stories";
+import type { Section } from "@/lib/sections";
+
+function storiesForSection(section: Section, leadSlug: string): Story[] {
+  const items = getStoriesBySection(section);
+  const rest = items.filter((story) => story.slug !== leadSlug);
+  return rest.length > 0 ? rest : items;
+}
 
 export default function HomePage() {
   const stories = getStories();
@@ -14,8 +21,8 @@ export default function HomePage() {
     );
   }
 
-  const sports = getStoriesBySection("sports").filter((story) => story.slug !== lead.slug);
-  const tech = getStoriesBySection("tech").filter((story) => story.slug !== lead.slug);
+  const sports = storiesForSection("sports", lead.slug);
+  const tech = storiesForSection("tech", lead.slug);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">

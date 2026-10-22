@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { AuthorAvatar } from "@/components/author-avatar";
 import { StoryList } from "@/components/story-list";
 import { formatStoryDate } from "@/lib/format";
 import { sections } from "@/lib/sections";
@@ -77,13 +78,16 @@ async function StoryContent({ params }: StoryPageProps) {
         {story.title}
       </h1>
       <p className="mt-5 font-serif text-xl italic leading-8 text-neutral-300">{story.dek}</p>
-      <p className="mt-6 border-y border-neutral-800 py-3 text-sm text-neutral-400">
-        {story.author}
-        <span aria-hidden="true"> · </span>
-        <time dateTime={story.publishedAt}>{formatStoryDate(story.publishedAt)}</time>
-        <span aria-hidden="true"> · </span>
-        {story.readMinutes} min read
-      </p>
+      <div className="mt-6 flex items-center gap-3 border-y border-neutral-800 py-3 text-sm text-neutral-400">
+        <AuthorAvatar name={story.author} size="md" />
+        <p>
+          {story.author}
+          <span aria-hidden="true"> · </span>
+          <time dateTime={story.publishedAt}>{formatStoryDate(story.publishedAt)}</time>
+          <span aria-hidden="true"> · </span>
+          {story.readMinutes} min read
+        </p>
+      </div>
       <div className="mt-8 space-y-6 text-lg leading-8 text-neutral-200">
         {story.body.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>

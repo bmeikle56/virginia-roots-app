@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AuthorAvatar } from "@/components/author-avatar";
 import { formatStoryDate } from "@/lib/format";
 import { sections } from "@/lib/sections";
 import type { Story } from "@/lib/stories";
@@ -31,12 +32,15 @@ export function LeadStory({
       <p className="mt-4 font-serif text-lg italic leading-7 text-neutral-300 sm:text-xl sm:leading-8">
         {story.dek}
       </p>
-      <p className="mt-5 text-sm text-neutral-400">
-        {story.author}
-        <span aria-hidden="true"> · </span>
-        <time dateTime={story.publishedAt}>{formatStoryDate(story.publishedAt)}</time>
-        <span aria-hidden="true"> · </span>
-        {story.readMinutes} min read
+      <p className="mt-5 flex items-center gap-2.5 text-sm text-neutral-400">
+        <AuthorAvatar name={story.author} />
+        <span>
+          {story.author}
+          <span aria-hidden="true"> · </span>
+          <time dateTime={story.publishedAt}>{formatStoryDate(story.publishedAt)}</time>
+          <span aria-hidden="true"> · </span>
+          {story.readMinutes} min read
+        </span>
       </p>
     </Link>
   );
@@ -58,12 +62,15 @@ export function StoryList({ stories }: { stories: Story[] }) {
             <p className="mt-2 line-clamp-3 text-base leading-6 text-neutral-400">
               {story.dek}
             </p>
-            <p className="mt-3 text-sm text-neutral-400">
-              {story.author}
-              <span aria-hidden="true"> · </span>
-              <time dateTime={story.publishedAt}>{formatStoryDate(story.publishedAt)}</time>
-              <span aria-hidden="true"> · </span>
-              {story.readMinutes} min read
+            <p className="mt-3 flex items-center gap-2.5 text-sm text-neutral-400">
+              <AuthorAvatar name={story.author} />
+              <span>
+                {story.author}
+                <span aria-hidden="true"> · </span>
+                <time dateTime={story.publishedAt}>{formatStoryDate(story.publishedAt)}</time>
+                <span aria-hidden="true"> · </span>
+                {story.readMinutes} min read
+              </span>
             </p>
           </Link>
         </li>
