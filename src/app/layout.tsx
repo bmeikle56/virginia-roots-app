@@ -39,7 +39,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${plexSans.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-black font-sans text-neutral-100">
+      <body className="isolate flex min-h-full flex-col bg-black font-sans text-neutral-100">
+        <div aria-hidden="true" className="site-wallpaper pointer-events-none fixed inset-0 -z-10" />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:px-3 focus:py-2 focus:text-black"

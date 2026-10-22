@@ -17,6 +17,15 @@ body {
   overflow-x: clip;
 }
 
+/* Fixed grid sits behind page content. Opaque panels paint above it. */
+.site-wallpaper {
+  background-color: #000;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 100% 12px, 12px 100%;
+}
+
 ::selection {
   background: #f5f5f5;
   color: #000;

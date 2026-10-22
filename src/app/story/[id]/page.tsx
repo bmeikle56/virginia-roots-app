@@ -40,7 +40,7 @@ export default function StoryPage({ params }: StoryPageProps) {
 
 function StoryFallback() {
   return (
-    <div className="mx-auto max-w-2xl animate-pulse px-4 py-8 motion-reduce:animate-none sm:px-6 sm:py-12" aria-busy="true">
+    <div className="mx-auto max-w-6xl animate-pulse px-4 py-8 motion-reduce:animate-none sm:px-6 sm:py-12" aria-busy="true">
       <div className="h-3 w-16 bg-neutral-800" />
       <div className="mt-5 h-10 max-w-xl bg-neutral-800" />
       <div className="mt-3 h-10 max-w-lg bg-neutral-800" />
@@ -67,7 +67,7 @@ async function StoryContent({ params }: StoryPageProps) {
   const related = getRelatedStories(story);
 
   return (
-    <article className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
+    <article className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
       <Link
         href={section.href}
         className="inline-flex min-h-11 items-center font-mono text-xs font-medium uppercase tracking-[0.14em] text-neutral-400 hover:text-white"
