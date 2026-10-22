@@ -70,18 +70,18 @@ async function StoryContent({ params }: StoryPageProps) {
     <article className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
       <Link
         href={section.href}
-        className="inline-flex min-h-11 items-center text-xs font-medium uppercase tracking-[0.16em] text-neutral-400 hover:text-white"
+        className="inline-flex min-h-11 items-center font-mono text-xs font-medium uppercase tracking-[0.14em] text-neutral-400 hover:text-white"
       >
         {section.label}
       </Link>
-      <h1 className="mt-3 font-serif text-[2rem] leading-[1.12] tracking-tight text-white sm:text-5xl">
+      <h1 className="mt-3 text-[2rem] font-medium leading-[1.12] tracking-tight text-white sm:text-5xl">
         {story.title}
       </h1>
-      <p className="mt-5 font-serif text-xl italic leading-8 text-neutral-300">{story.dek}</p>
-      <div className="mt-6 flex items-center gap-3 border-y border-neutral-800 py-3 text-sm text-neutral-400">
+      <p className="mt-5 text-xl leading-8 text-neutral-300">{story.dek}</p>
+      <div className="mt-6 flex items-center gap-3 rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-sm text-neutral-400">
         <AuthorAvatar name={story.author} size="md" />
         <p>
-          {story.author}
+          <span className="font-bold text-white">{story.author}</span>
           <span aria-hidden="true"> · </span>
           <time dateTime={story.publishedAt}>{formatStoryDate(story.publishedAt)}</time>
           <span aria-hidden="true"> · </span>
@@ -95,7 +95,7 @@ async function StoryContent({ params }: StoryPageProps) {
       </div>
       {related.length > 0 ? (
         <aside className="mt-14" aria-labelledby="related-heading">
-          <h2 id="related-heading" className="mb-4 font-serif text-2xl text-white">
+          <h2 id="related-heading" className="mb-4 text-2xl font-medium tracking-tight text-white">
             More in {section.label}
           </h2>
           <StoryList stories={related} />

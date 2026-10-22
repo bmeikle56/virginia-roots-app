@@ -19,7 +19,7 @@ export function SectionBand({
     >
       <div className="grid gap-6 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-12">
         <div className="flex items-center justify-between gap-4 md:block">
-          <h2 id={`${section}-heading`} className="font-serif text-3xl text-white">
+          <h2 id={`${section}-heading`} className="text-3xl font-medium tracking-tight text-white">
             {meta.label}
           </h2>
           <Link

@@ -74,7 +74,7 @@ export function SiteHeader() {
         </button>
         <Link
           href="/"
-          className="justify-self-center font-serif text-lg tracking-tight text-white sm:text-2xl md:justify-self-auto md:text-[1.7rem]"
+          className="justify-self-center text-lg font-medium tracking-tight text-white sm:text-2xl md:justify-self-auto md:text-[1.7rem]"
           onClick={closeMenu}
         >
           Virginia Roots

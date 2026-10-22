@@ -20,22 +20,26 @@ export function LeadStory({
     size === "front" ? `Top story · ${sections[story.section].label}` : "Latest";
 
   return (
-    <Link href={`/story/${story.slug}`} prefetch={true} className="group block max-w-4xl">
-      <p className="text-xs font-medium uppercase tracking-[0.16em] text-neutral-400">
+    <Link
+      href={`/story/${story.slug}`}
+      prefetch={true}
+      className="group block max-w-4xl rounded-lg border border-neutral-800 bg-neutral-950 p-5 sm:p-6"
+    >
+      <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-neutral-400">
         {kicker}
       </p>
       <Title
-        className={`mt-3 font-serif leading-[1.12] tracking-tight text-white group-hover:text-neutral-300 ${titleClass}`}
+        className={`mt-3 font-medium leading-[1.12] tracking-tight text-white group-hover:text-neutral-300 ${titleClass}`}
       >
         {story.title}
       </Title>
-      <p className="mt-4 font-serif text-lg italic leading-7 text-neutral-300 sm:text-xl sm:leading-8">
+      <p className="mt-4 text-lg leading-7 text-neutral-300 sm:text-xl sm:leading-8">
         {story.dek}
       </p>
       <p className="mt-5 flex items-center gap-2.5 text-sm text-neutral-400">
         <AuthorAvatar name={story.author} />
         <span>
-          {story.author}
+          <span className="font-bold text-white">{story.author}</span>
           <span aria-hidden="true"> · </span>
           <time dateTime={story.publishedAt}>{formatStoryDate(story.publishedAt)}</time>
           <span aria-hidden="true"> · </span>
@@ -52,11 +56,15 @@ export function StoryList({ stories }: { stories: Story[] }) {
   }
 
   return (
-    <ul className="divide-y divide-neutral-800 border-y border-neutral-800">
+    <ul className="flex flex-col gap-3">
       {stories.map((story) => (
         <li key={story.slug}>
-          <Link href={`/story/${story.slug}`} prefetch={true} className="group block py-5">
-            <h3 className="font-serif text-2xl leading-tight text-white group-hover:text-neutral-300">
+          <Link
+            href={`/story/${story.slug}`}
+            prefetch={true}
+            className="group block rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-5 sm:px-5"
+          >
+            <h3 className="text-2xl font-medium leading-tight tracking-tight text-white group-hover:text-neutral-300">
               {story.title}
             </h3>
             <p className="mt-2 line-clamp-3 text-base leading-6 text-neutral-400">
@@ -65,7 +73,7 @@ export function StoryList({ stories }: { stories: Story[] }) {
             <p className="mt-3 flex items-center gap-2.5 text-sm text-neutral-400">
               <AuthorAvatar name={story.author} />
               <span>
-                {story.author}
+                <span className="font-bold text-white">{story.author}</span>
                 <span aria-hidden="true"> · </span>
                 <time dateTime={story.publishedAt}>{formatStoryDate(story.publishedAt)}</time>
                 <span aria-hidden="true"> · </span>

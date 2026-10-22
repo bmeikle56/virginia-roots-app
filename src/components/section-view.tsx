@@ -10,7 +10,7 @@ export function SectionView({ section }: { section: Section }) {
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
       <header className="max-w-3xl">
-        <h1 className="font-serif text-4xl tracking-tight text-white sm:text-6xl">
+        <h1 className="text-4xl font-medium tracking-tight text-white sm:text-6xl">
           {meta.label}
         </h1>
         <p className="mt-4 text-lg leading-7 text-neutral-400">{meta.description}</p>
@@ -24,7 +24,7 @@ export function SectionView({ section }: { section: Section }) {
       )}
       {rest.length > 0 ? (
         <div className="mt-12">
-          <h2 className="mb-4 font-serif text-2xl text-white">
+          <h2 className="mb-4 text-2xl font-medium tracking-tight text-white">
             More {meta.label.toLowerCase()}
           </h2>
           <StoryList stories={rest} />
