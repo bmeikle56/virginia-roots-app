@@ -15,4 +15,8 @@ export const sections = {
 
 export type Section = keyof typeof sections;
 
+export function isSection(value: string): value is Section {
+  return Object.hasOwn(sections, value);
+}
+
 export const navItems = [sections.sports, sections.tech];

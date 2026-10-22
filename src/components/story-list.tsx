@@ -21,7 +21,7 @@ export function LeadStory({
 
   return (
     <Link
-      href={`/story/${story.slug}`}
+      href={`/story/${story.id}`}
       prefetch={true}
       className="group block max-w-4xl rounded-lg border border-neutral-800 bg-neutral-950 p-5 sm:p-6"
     >
@@ -58,9 +58,9 @@ export function StoryList({ stories }: { stories: Story[] }) {
   return (
     <ul className="flex flex-col gap-3">
       {stories.map((story) => (
-        <li key={story.slug}>
+        <li key={story.id}>
           <Link
-            href={`/story/${story.slug}`}
+            href={`/story/${story.id}`}
             prefetch={true}
             className="group block rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-5 sm:px-5"
           >

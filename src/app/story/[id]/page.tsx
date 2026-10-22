@@ -9,16 +9,16 @@ import { sections } from "@/lib/sections";
 import { getRelatedStories, getStories, getStory } from "@/lib/stories";
 
 type StoryPageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ id: string }>;
 };
 
 export function generateStaticParams() {
-  return getStories().map((story) => ({ slug: story.slug }));
+  return getStories().map((story) => ({ id: story.id }));
 }
 
 export async function generateMetadata({ params }: StoryPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const story = getStory(slug);
+  const { id } = await params;
+  const story = getStory(id);
 
   if (!story) {
     return { title: "Story not found" };
@@ -56,8 +56,8 @@ function StoryFallback() {
 }
 
 async function StoryContent({ params }: StoryPageProps) {
-  const { slug } = await params;
-  const story = getStory(slug);
+  const { id } = await params;
+  const story = getStory(id);
 
   if (!story) {
     notFound();

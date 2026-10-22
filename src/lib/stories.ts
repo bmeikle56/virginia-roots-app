@@ -1,7 +1,7 @@
 import { sections, type Section } from "@/lib/sections";
 
 export type Story = {
-  slug: string;
+  id: string;
   title: string;
   dek: string;
   section: Section;
@@ -13,7 +13,7 @@ export type Story = {
 
 const stories: Story[] = [
   {
-    slug: "is-the-wizards-front-office-good",
+    id: "is-the-wizards-front-office-good",
     title: "Is the Wizards front office good?",
     dek: "The bet was placed and called. This year, the players Will Dawkins bet on will decide his fate.",
     section: "sports",
@@ -34,7 +34,7 @@ const stories: Story[] = [
     ],
   },
   {
-    slug: "browser-is-the-workplace",
+    id: "browser-is-the-workplace",
     title: "The browser swallowed the workplace, quietly",
     dek: "The desktop icon did not disappear. It just started opening a tab, and most of the work moved in with it.",
     section: "tech",
@@ -49,7 +49,7 @@ const stories: Story[] = [
     ],
   },
   {
-    slug: "on-device-models",
+    id: "on-device-models",
     title: "On-device models change who gets to experiment",
     dek: "When a model runs on the laptop in front of you, a newsroom can try an idea before it files a budget request.",
     section: "tech",
@@ -64,7 +64,7 @@ const stories: Story[] = [
     ],
   },
   {
-    slug: "speed-is-a-decision",
+    id: "speed-is-a-decision",
     title: "Feeling fast is a product decision",
     dek: "Speed is not what remains after the features are done. It is one of the features, and someone has to refuse the work that breaks it.",
     section: "tech",
@@ -79,7 +79,7 @@ const stories: Story[] = [
     ],
   },
   {
-    slug: "open-protocols-again",
+    id: "open-protocols-again",
     title: "Open protocols are back in the group chat",
     dek: "Feeds, logins, and payment links keep getting trapped inside products. The old idea of a shared standard is being asked to do new work.",
     section: "tech",
@@ -99,8 +99,8 @@ export function getStories() {
   return [...stories].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 }
 
-export function getStory(slug: string) {
-  return stories.find((story) => story.slug === slug);
+export function getStory(id: string) {
+  return stories.find((story) => story.id === id);
 }
 
 export function getStoriesBySection(section: Section) {
@@ -109,7 +109,7 @@ export function getStoriesBySection(section: Section) {
 
 export function getRelatedStories(story: Story, limit = 3) {
   return getStoriesBySection(story.section)
-    .filter((item) => item.slug !== story.slug)
+    .filter((item) => item.id !== story.id)
     .slice(0, limit);
 }
 
